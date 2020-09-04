@@ -118,7 +118,7 @@ class Helpers
         $path     = isset($parsed_url['path']) ? $parsed_url['path'] : '';
         $query    = isset($parsed_url['query']) ? '?' . $parsed_url['query'] : '';
         $fragment = isset($parsed_url['fragment']) ? '#' . $parsed_url['fragment'] : '';
-        
+
         // partially reproduced from https://stackoverflow.com/a/1243431/264628
         /* replace '//' or '/./' or '/foo/../' with '/' */
         $re = array('#(/\.?/)#', '#/(?!\.\.)[^/]+/\.\./#');
@@ -861,9 +861,9 @@ class Helpers
 
         try {
             if ($is_local_path || ini_get('allow_url_fopen')) {
-                if ($is_local_path === false) {
-                    $uri = Helpers::encodeURI($uri);
-                }
+                //if ($is_local_path === false) {
+                    //$uri = Helpers::encodeURI($uri);
+                //}
                 if (isset($maxlen)) {
                     $result = file_get_contents($uri, null, $context, $offset, $maxlen);
                 } else {
